@@ -107,10 +107,10 @@ int main()
 	randomize();
 	printList();
 
-	int count = matchingSets(16);
-	cout << "Matching count: " << count << endl;
+	int count = matchingSets_hybrid(16);
+	cout << "Matching count [Hybrid rec/loop]: " << count << endl;
 
-	count = matchingSetsPure(16);
+	count = matchingSets_pure(16);
 	cout << "Matching count [Pure recursive]: " << count << endl;
 
 	system("pause");
