@@ -54,9 +54,8 @@ int recursiveSearch_hybrid(int index, int targetVal) {
 		return 0;
 
 	int matchCount = 0;
-	for (int i = index + 1; i<SET_SIZE; i++) {
+	for (int i = index + 1; i<SET_SIZE; i++)
 		matchCount += recursiveSearch_hybrid(i, newTargetVal);
-	}
 
 	return matchCount;
 }
@@ -64,9 +63,9 @@ int recursiveSearch_hybrid(int index, int targetVal) {
 // Using each index as a root node, look through whole list
 int matchingSets_hybrid(int targetVal) {
 	int count = 0;
-	for (int i = 0; i<SET_SIZE; i++) {
+	for (int i = 0; i<SET_SIZE; i++)
 		count += recursiveSearch_hybrid(i, targetVal);
-	}
+
 	return count;
 }
 /***************************************/
@@ -94,7 +93,7 @@ void printList() {
 // Randomize list 0-10 for now
 void randomize() {
 	listAction([](int &iRef) {
-		iRef = rand() % 10;
+		iRef = rand() % 100;
 	});
 }
 /******************/
@@ -107,10 +106,10 @@ int main()
 	randomize();
 	printList();
 
-	int count = matchingSets_hybrid(16);
+	int count = matchingSets_hybrid(21);
 	cout << "Matching count [Hybrid rec/loop]: " << count << endl;
 
-	count = matchingSets_pure(16);
+	count = matchingSets_pure(21);
 	cout << "Matching count [Pure recursive]: " << count << endl;
 
 	system("pause");
